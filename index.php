@@ -741,15 +741,20 @@ function loadPage( $song = '', $error = '', $songinfo = array() ) {
         };
         
         function clearPlaylist() {
-            setCookie('nm_songs_playlist', '', 365);
-                
-            var playmode = getCookie('nm_playmode');
-            if (playmode == 'playlist') {
-                setCookie('nm_songs_active', '', 7);                
-                setCookie('nm_songs_active_idx', '0', 7);
-            }
-                
-            goToPlaylist('default');
+            // Clear all playlist and playback cookies (using -1 to expire them)
+            setCookie('nm_songs_playlist', '', -1);
+            setCookie('nm_songs_active', '', -1);
+            setCookie('nm_songs_active_idx', '', -1);
+            setCookie('nm_nowplaying', '', -1);
+            setCookie('nm_playmode', '', -1);
+            setCookie('nm_currentbrowsedir', '', -1);
+            setCookie('nm_currentsongdir', '', -1);
+            setCookie('nm_songs_currentsongdir', '', -1);
+            setCookie('nm_viewmode', '', -1);
+            setCookie('nm_shuffle', '', -1);
+
+            // Reload to initial state (stops music and shows root directory)
+            window.location.href = '.';
         };
 
         function setPlayMode(mode, song) {
