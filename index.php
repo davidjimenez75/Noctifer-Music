@@ -30,7 +30,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 $basefoldertitle = 'Music';
 
 # whether or not to ask for a password, and if yes, the array of allowed passwords to access directory/playlist contents
-$usepassword = true;
+$usepassword = false; // disabled password protection by default
 $passwords = array('123', 'abc');
 
 # files with the following extensions will be displayed (case-insensitive)
