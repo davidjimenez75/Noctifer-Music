@@ -676,13 +676,6 @@ function loadPage( $song = '', $error = '', $songinfo = array() ) {
                 var song = href.replace('?play=', '');
                 addToPlaylist(song);
             });
-
-            // Show feedback
-            if (fileElements.length > 0) {
-                alert(fileElements.length + ' song(s) added to playlist');
-            } else {
-                alert('No songs to add');
-            }
         };
 
         function removeFromPlaylist(song) {
