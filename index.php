@@ -363,20 +363,23 @@ function renderButtons() {
     elseif ( isset( $_COOKIE['nm_currentsongdir'] ) ) { $dir = $_COOKIE['nm_currentsongdir']; }
     else { $dir = '.'; }
     
-    # rendering playlist buttons when in playlist mode
+    # rendering mode-specific buttons
     if ( $viewmode == 'playlist' ) {
-        $playlistbuttons = <<<PLBUTTONS
+        $modebuttons = <<<MODEBUTTONS
         <div class="button" onclick="clearPlaylist();"><span>Clear</span></div>
         <div class="separator"></div>
-PLBUTTONS;
+MODEBUTTONS;
     } else {
-        $playlistbuttons = '';
+        $modebuttons = <<<MODEBUTTONS
+        <div class="button" onclick="addAllToPlaylist();"><span>Add All</span></div>
+        <div class="separator"></div>
+MODEBUTTONS;
     }
 
     # rendering general buttons
     echo <<<BUTTONS
     <div class="buttons">
-        {$playlistbuttons}
+        {$modebuttons}
         <div class="button{$shuffleactive}" id="shufflebutton" onclick="toggleShuffle();"><span>Shuffle</span></div>
         <div class="separator"></div>
         <div class="button border{$browseactive}" onclick="goToDir('{$dir}');"><span>Browse</span></div>
@@ -659,7 +662,27 @@ function loadPage( $song = '', $error = '', $songinfo = array() ) {
                     setCookie('nm_songs_active_idx', songIdx, 7);
                 }
             }
-            
+
+        };
+
+        function addAllToPlaylist() {
+            // Get all file elements in the current directory
+            var fileElements = document.querySelectorAll('#filelist .file a');
+
+            // Extract song paths and add each to playlist
+            fileElements.forEach(function(element) {
+                var href = element.getAttribute('href');
+                // Extract the song path from ?play=SONGPATH
+                var song = href.replace('?play=', '');
+                addToPlaylist(song);
+            });
+
+            // Show feedback
+            if (fileElements.length > 0) {
+                alert(fileElements.length + ' song(s) added to playlist');
+            } else {
+                alert('No songs to add');
+            }
         };
 
         function removeFromPlaylist(song) {
