@@ -45,40 +45,42 @@ $width = '95%';
 
 # different themes given by their background image and element colours
 # "shore"
-/*    
+
 $backgroundimg = './backgrounds/bg_shore.jpg';
 $background = '#222';
 $accentfg = '#000';
-$accentbg = '#fc0';
-$menubg = '#eee';
-$menushadow = '#ddd';
+$accentbg = 'rgba(255, 204, 0, 0.85)';
+$menubg = 'rgba(238, 238, 238, 0.85)';
+$menushadow = 'rgba(221, 221, 221, 0.75)';
 $gradient1 = '#1a1a1a';
 $gradient2 = '#444';
-$filebuttonfg = '#bbb';
-*/
+$filebuttonfg = '#999';
+
 
 # "dark"
+/*
 $backgroundimg = './backgrounds/bg_dark.jpg';
 $background = '#333';
-$accentfg = '#00f';
-$accentbg = '#dadada';
-$menubg = '#aaa';
-$menushadow = '#ccc';
+$accentfg = 'rgba(0, 0, 255, 1)';
+$accentbg = 'rgba(218, 218, 218, 0.65)';
+$menubg = 'rgba(170, 170, 170, 0.65)';
+$menushadow = 'rgba(204, 204, 204, 0.65)';
 $gradient1 = '#1a1a1a';
 $gradient2 = '#444';
-$filebuttonfg = '#bbb';
+$filebuttonfg = '#333';
+*/
 
 # "forest"
 /*
 $backgroundimg = './backgrounds/bg_forest.jpg';
 $background = '#556555';
-$accentfg = '#000';
-$accentbg = '#c4dd2a';
-$menubg = '#eee';
-$menushadow = '#ddd';
+$accentfg = 'rgba(0, 0, 0, 0.85)';
+$accentbg = 'rgba(196, 221, 42, 0.85)';
+$menubg = 'rgba(164, 164, 164, 0.95)';
+$menushadow = 'rgba(221, 221, 221, 0.90)';
 $gradient1 = '#1a1a1a';
 $gradient2 = '#444';
-$filebuttonfg = '#bbb';
+$filebuttonfg = '#333';
 */
 
 /*
