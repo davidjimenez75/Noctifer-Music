@@ -26,6 +26,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # +-----------------------------------+
 # |     C O N F I G U R A T I O N     |
 # +-----------------------------------+
+# Define the base folder name on the web interface
+$basefoldertitle = 'Music';
 
 # whether or not to ask for a password, and if yes, the array of allowed passwords to access directory/playlist contents
 $usepassword = true;
@@ -33,16 +35,17 @@ $passwords = array('123', 'abc');
 
 # files with the following extensions will be displayed (case-insensitive)
 # note that it depends on your browser whether or not these will actually play
-$allowedextensions = array( 'mp3', 'flac', 'wav', 'ogg', 'opus', 'webm' );
+$allowedextensions = array( 'mp3', 'flac', 'wav', 'ogg', 'opus', 'webm' ,'m4a' , 'm4b' , 'aac' ,'mp4');
 
 # the following directories and files will not be displayed (case-sensitive)
 $excluded = array( '.', '..', '.git', '.htaccess', '.htpasswd', 'backgrounds', 'cgi-bin', 'docs', 'getid3', 'logs', 'usage' );
 
 # the width of the player (in desktop mode)
-$width = '40%';
+$width = '95%';
 
 # different themes given by their background image and element colours
-    # "shore"
+# "shore"
+/*    
 $backgroundimg = './backgrounds/bg_shore.jpg';
 $background = '#222';
 $accentfg = '#000';
@@ -52,29 +55,31 @@ $menushadow = '#ddd';
 $gradient1 = '#1a1a1a';
 $gradient2 = '#444';
 $filebuttonfg = '#bbb';
+*/
 
-    # "dark"
-// $backgroundimg = './backgrounds/bg_dark.jpg';
-// $background = '#333';
-// $accentfg = '#000';
-// $accentbg = '#fff';
-// $menubg = '#ddd';
-// $menushadow = '#ccc';
-// $gradient1 = '#1a1a1a';
-// $gradient2 = '#444';
-// $filebuttonfg = '#bbb';
+# "dark"
+$backgroundimg = './backgrounds/bg_dark.jpg';
+$background = '#333';
+$accentfg = '#00f';
+$accentbg = '#dadada';
+$menubg = '#aaa';
+$menushadow = '#ccc';
+$gradient1 = '#1a1a1a';
+$gradient2 = '#444';
+$filebuttonfg = '#bbb';
 
-    # "forest"
-// $backgroundimg = './backgrounds/bg_forest.jpg';
-// $background = '#556555';
-// $accentfg = '#000';
-// $accentbg = '#c4dd2a';
-// $menubg = '#eee';
-// $menushadow = '#ddd';
-// $gradient1 = '#1a1a1a';
-// $gradient2 = '#444';
-// $filebuttonfg = '#bbb';
-
+# "forest"
+/*
+$backgroundimg = './backgrounds/bg_forest.jpg';
+$background = '#556555';
+$accentfg = '#000';
+$accentbg = '#c4dd2a';
+$menubg = '#eee';
+$menushadow = '#ddd';
+$gradient1 = '#1a1a1a';
+$gradient2 = '#444';
+$filebuttonfg = '#bbb';
+*/
 
 /*
 
@@ -253,7 +258,7 @@ PASSWORDREQUEST;
             echo '<div id="breadcrumbs">';
             $breadcrumbs = explode( '/', $basedir );
             for ( $i = 0; $i != sizeof( $breadcrumbs ); $i++ ) {
-                $title = $breadcrumbs[$i] == '.'  ? 'Root'  : $breadcrumbs[$i];
+                $title = $breadcrumbs[$i] == '.'  ? $basefoldertitle  : $breadcrumbs[$i];
 
                 if ($i == sizeof($breadcrumbs) - 1) {
                     # current directory
